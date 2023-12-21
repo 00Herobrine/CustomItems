@@ -1,0 +1,31 @@
+drain-config: global #player
+update-config: global #player
+stamina-bar-update-rate: 20 # in ticks
+stamina-tick-rate: 20 # in ticks
+Config:
+  Stamina:
+    amount: 20
+    max: 20
+    exhausted: false
+    regen-interval: 1.0 # Every second
+    drain-interval: 1.0
+  Idle:
+    regen-delay: 0.0 # Always should be 0 but like you do you
+    regen-amount: 1.0
+    drain-amount: 0.0
+  Walk:
+    regen-delay: 3
+    regen-amount: 1.0
+    drain-amount: 0.0
+  Jump:
+    regen-delay: 3
+    regen-amount: 1.0
+    drain-amount: 0.0
+  Sprint:
+    regen-delay: 3
+    regen-amount: 1.0
+    drain-amount: 0.0
+  Exhausted:
+    regen-delay: 10
+    regen-amount: 1.0
+    drain-amount: 1.0

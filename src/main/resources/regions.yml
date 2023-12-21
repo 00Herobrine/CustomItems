@@ -1,0 +1,9 @@
+ID:
+  bottomLeft: 0, 0, 0
+  topRight: 1, 1, 1
+  world: world
+  whitelist:
+  blacklist:
+Spawn:
+  bottomLeft: 0, 45, 0
+  topRight: 25, 65, -25
