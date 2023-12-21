@@ -22,7 +22,7 @@ import org.x00hero.Stamina.StaminaController;
 import java.util.HashMap;
 import java.util.UUID;
 
-import static org.x00hero.customitems.Main.*;
+import static org.x00hero.Main.*;
 
 public class PlayerMovement implements Listener {
     private HashMap<UUID, Location> falling = new HashMap<>();
@@ -70,7 +70,7 @@ public class PlayerMovement implements Listener {
                 }
             }, 3);
         }
-        StaminaController.StaminaCheck(player, e);
+        StaminaController.StaminaCheck(player);
     }
     @EventHandler
     public void onSprint(PlayerToggleSprintEvent e) {

@@ -6,7 +6,6 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.Vector;
 import org.x00hero.Stamina.Events.Custom.StaminaDrainEvent;
 import org.x00hero.Stamina.Events.Custom.StaminaRegenEvent;
@@ -16,7 +15,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.UUID;
 
-import static org.x00hero.customitems.Main.*;
+import static org.x00hero.Main.*;
 
 public class StaminaController {
     private static YamlConfiguration config;
@@ -99,7 +98,7 @@ public class StaminaController {
             for(StaminaContainer controller : registered.values()) {
                 Player player = controller.getHolder();
                 if(player == null) { unregister(controller.getHolderID()); continue; }
-                StaminaCheck(player, null);
+                StaminaCheck(player);
                 UpdateStaminaBar(player);
             }
         }, 0, config.getInt("stamina-bar-update-rate"));
@@ -122,7 +121,7 @@ public class StaminaController {
         }, 0, config.getInt("stamina-tick-rate"));*/
     }
 
-    public static void StaminaCheck(Player player, PlayerMoveEvent event) {
+    public static void StaminaCheck(Player player) {
         StaminaContainer stamina = getStaminaContainer(player);
         //Log("Current: " + System.currentTimeMillis() + "\n" + stamina.toString());
         GameMode gameMode = player.getGameMode();
@@ -134,16 +133,7 @@ public class StaminaController {
         if(mag > 0) state = DrainCause.WALK;
         if(player.isSprinting()) {
             state = DrainCause.SPRINT;
-            if(stamina.isExhausted()) {
-                float original = player.getWalkSpeed();
-                int food = player.getFoodLevel();
-                player.setWalkSpeed(0f);
-                player.setFoodLevel(2);
-                player.setWalkSpeed(original);
-                Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                    player.setFoodLevel(food);
-                }, 10L);
-            }
+            if(stamina.isExhausted()) stamina.cancelSprint();
         } else if(player.isSneaking()) {
             state = DrainCause.SNEAKING;
         }

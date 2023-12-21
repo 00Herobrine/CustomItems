@@ -2,5 +2,4 @@ Region:
   update-rate: -1
 drain-config: global #player
 update-config: global #player
-salt:
-secret-key:
+bytes: 128

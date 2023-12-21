@@ -1,0 +1,4 @@
+Events:
+  RIGHT_CLICK_BLOCK:
+    commands:
+      'me does the thing'

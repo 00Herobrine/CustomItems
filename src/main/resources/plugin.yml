@@ -1,4 +1,4 @@
 name: CustomItems
 version: '${project.version}'
-main: org.x00hero.customitems.Main
+main: org.x00hero.Main
 api-version: '1.18'

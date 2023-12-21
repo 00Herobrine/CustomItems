@@ -1,0 +1,10 @@
+model: 'minecraft/something.json'
+Events:
+  Walk:
+  Place:
+    commands:
+      - "me sharts"
+  Regions:
+    Open:
+      width: 2
+      height: 2

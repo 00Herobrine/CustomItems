@@ -7,6 +7,8 @@ import org.bukkit.entity.Player;
 import java.util.Objects;
 import java.util.UUID;
 
+import static org.x00hero.Main.plugin;
+
 public class StaminaContainer {
     // temp
     private UUID holder;
@@ -161,9 +163,9 @@ public class StaminaContainer {
     public Player getHolder() { return Bukkit.getPlayer(holder); }
     public void cancelSprint() {
         Player player = getHolder();
-        float original = player.getWalkSpeed();
-        player.setWalkSpeed(0);
-        player.setWalkSpeed(original);
+        int original = player.getFoodLevel();
+        player.setFoodLevel(2);
+        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> player.setFoodLevel(original), 10L);
     }
 
     public double getRegenInterval() { return regenInterval; }
