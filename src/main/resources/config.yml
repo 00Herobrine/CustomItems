@@ -1,5 +1,5 @@
-Region:
-  update-rate: -1
+region-tick-rate: -1
 drain-config: global #player
 update-config: global #player
 bytes: 128
+customItemKey: HCI

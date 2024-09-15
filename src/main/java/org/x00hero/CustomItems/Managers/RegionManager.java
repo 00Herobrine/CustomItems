@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.util.BoundingBox;
 import org.bukkit.util.Vector;
+import org.x00hero.CustomItems.Config;
 import org.x00hero.CustomItems.Custom.Region.CustomRegion;
 import org.x00hero.CustomItems.Custom.Region.Events.EnteredCustomRegion;
 import org.x00hero.CustomItems.Custom.Region.Events.LeftCustomRegion;
@@ -60,7 +61,7 @@ public class RegionManager {
                     RegionCheck(player, (PlayerMoveEvent) null);
                 }
             }
-        }, 0, Math.abs(plugin.getConfig().getInt("Region.update-rate")));
+        }, 0, Math.abs(Config.getRegionTickRate()));
     }
     public static void RegionCheck(Player player, PlayerMoveEvent e) {
         Vector locVector = player.getLocation().toVector();

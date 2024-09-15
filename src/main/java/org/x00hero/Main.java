@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Event;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.x00hero.CustomItems.Config;
 import org.x00hero.Stamina.StaminaController;
 import org.x00hero.Stamina.StaminaTest;
 import org.x00hero.CustomItems.Events.Interactions;
@@ -25,6 +26,7 @@ public final class Main extends JavaPlugin {
         plugin = this;
         saveDefaultConfig();
         generateAndSaveSecretKey();
+        Config.Initalize();
         RegionManager.LoadRegions();
         RegisterEvents();
         StaminaController.LoadConfig();

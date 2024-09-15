@@ -1,3 +1,6 @@
+material: STICK
+Name: "Flame Thrower"
+Lore: "Launches a projectile?"
 Events:
   RIGHT_CLICK_BLOCK:
     commands:
